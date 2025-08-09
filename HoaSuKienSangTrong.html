@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoa hồng đỏ Châu Âu - GiangNhan Flower Shop</title>
-    <meta name="description" content="Chi tiết sản phẩm Hoa hồng đỏ Châu Âu - bó hoa hồng đỏ cao cấp, thiết kế tinh tế, phù hợp cho những dịp đặc biệt.">
+    <title>Hoa sự kiện sang trọng - GiangNhạn Flower Shop</title>
+    <meta name="description" content="Chi tiết sản phẩm Hoa sự kiện sang trọng - trang trí sự kiện cao cấp, thiết kế chuyên nghiệp.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -23,6 +23,17 @@
         .product-zoom:hover img { transform: scale(1.05); }
         #mobile-menu.show { transform: scaleY(1); }
     </style>
+    <script>
+        (function() {
+            const sources = [
+                'images/SuKien/KhaiTruong0.png',
+                'images/SuKien/KhaiTruong1.png',
+                'images/SuKien/KhaiTruong2.png',
+                'images/SuKien/KhaiTruong3.png'
+            ];
+            sources.forEach(src => { const img = new Image(); img.src = src; });
+        })();
+    </script>
 </head>
 
 <body class="font-poppins bg-gradient-to-br from-pink-50 to-green-50">
@@ -69,9 +80,9 @@
     <nav class="container mx-auto px-6 py-4 text-sm text-gray-600">
         <a href="index.html" class="hover:text-pink-500">Trang chủ</a>
         <span class="mx-2">/</span>
-        <a href="index.html#products" class="hover:text-pink-500">Hoa hồng</a>
+        <a href="index.html#collections" class="hover:text-pink-500">Sự kiện</a>
         <span class="mx-2">/</span>
-        <span class="text-gray-800">Hoa hồng đỏ Châu Âu</span>
+        <span class="text-gray-800">Hoa sự kiện sang trọng</span>
     </nav>
 
     <!-- Product Detail -->
@@ -80,18 +91,21 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
                 <!-- Gallery -->
                 <div class="space-y-4">
-                    <div class="product-zoom w-full h-72 sm:h-96 bg-gray-100 rounded-xl overflow-hidden">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fce7f3'/><circle cx='150' cy='120' r='40' fill='%23f472b6'/><circle cx='130' cy='100' r='25' fill='%23ec4899'/><circle cx='170' cy='100' r='25' fill='%23ec4899'/><circle cx='150' cy='80' r='20' fill='%23db2777'/><rect x='145' y='160' width='10' height='80' fill='%2316a34a'/><ellipse cx='120' cy='200' rx='15' ry='8' fill='%2316a34a'/><ellipse cx='180' cy='180' rx='12' ry='6' fill='%2316a34a'/></svg>" alt="Hoa hồng đỏ Châu Âu" class="w-full h-full object-cover">
+                    <div class="product-zoom w-full h-[26rem] sm:h-[34rem] bg-gray-100 rounded-xl overflow-hidden">
+                        <img id="mainImage" src="images/SuKien/KhaiTruong0.png" alt="Hoa sự kiện sang trọng" class="w-full h-full object-contain">
                     </div>
-                    <div class="grid grid-cols-3 gap-3">
-                        <div class="h-20 sm:h-24 bg-gray-100 rounded-lg overflow-hidden">
-                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fdf2f8'/><circle cx='150' cy='115' r='40' fill='%23fce7f3'/><circle cx='135' cy='100' r='22' fill='%23f9a8d4'/><circle cx='165' cy='100' r='22' fill='%23f9a8d4'/><circle cx='150' cy='130' r='20' fill='%23f9a8d4'/><rect x='145' y='155' width='10' height='75' fill='%2316a34a'/></svg>" alt="Góc chụp 1" class="w-full h-full object-cover">
+                    <div class="mt-6 flex justify-center gap-4">
+                        <div class="h-24 sm:h-28 bg-gray-100 rounded-lg overflow-hidden cursor-pointer ring-2 ring-pink-500" data-thumb data-large="images/SuKien/KhaiTruong0.png">
+                            <img src="images/SuKien/KhaiTruong0.png" alt="Hoa sự kiện - ảnh 0" class="w-full h-full object-contain">
                         </div>
-                        <div class="h-20 sm:h-24 bg-gray-100 rounded-lg overflow-hidden">
-                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fafafa'/><circle cx='150' cy='120' r='40' fill='%23ffffff'/><circle cx='130' cy='100' r='25' fill='%23f8fafc'/><rect x='145' y='160' width='10' height='80' fill='%2316a34a'/></svg>" alt="Góc chụp 2" class="w-full h-full object-cover">
+                        <div class="h-24 sm:h-28 bg-gray-100 rounded-lg overflow-hidden cursor-pointer" data-thumb data-large="images/SuKien/KhaiTruong1.png">
+                            <img src="images/SuKien/KhaiTruong1.png" alt="Hoa sự kiện - ảnh 1" class="w-full h-full object-contain">
                         </div>
-                        <div class="h-20 sm:h-24 bg-gray-100 rounded-lg overflow-hidden">
-                            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fef3c7'/><rect x='120' y='180' width='60' height='80' rx='8' fill='%23f3f4f6' stroke='%23d1d5db' stroke-width='2'/><circle cx='140' cy='140' r='20' fill='%23fbbf24'/><rect x='145' y='160' width='4' height='20' fill='%2316a34a'/></svg>" alt="Phụ kiện kèm theo" class="w-full h-full object-cover">
+                        <div class="h-24 sm:h-28 bg-gray-100 rounded-lg overflow-hidden cursor-pointer" data-thumb data-large="images/SuKien/KhaiTruong2.png">
+                            <img src="images/SuKien/KhaiTruong2.png" alt="Hoa sự kiện - ảnh 2" class="w-full h-full object-contain">
+                        </div>
+                        <div class="h-24 sm:h-28 bg-gray-100 rounded-lg overflow-hidden cursor-pointer" data-thumb data-large="images/SuKien/KhaiTruong3.png">
+                            <img src="images/SuKien/KhaiTruong3.png" alt="Hoa sự kiện - ảnh 3" class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
@@ -99,7 +113,7 @@
                 <!-- Info -->
                 <div class="space-y-5">
                     <div>
-                        <h2 class="text-2xl sm:text-3xl font-playfair font-bold text-gray-800 mb-2">Hoa hồng đỏ Châu Âu</h2>
+                        <h2 class="text-2xl sm:text-3xl font-playfair font-bold text-gray-800 mb-2">Hoa sự kiện sang trọng</h2>
                         <div class="flex items-center space-x-4 mb-3">
                             <div class="flex text-yellow-400 text-sm">
                                 <i class="fas fa-star"></i>
@@ -108,28 +122,27 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <span class="text-gray-600 text-sm">(24 đánh giá)</span>
+                            <span class="text-gray-600 text-sm">(32 đánh giá)</span>
                         </div>
-                        <p class="text-2xl sm:text-3xl font-bold text-pink-500">399.000đ</p>
+                        <p class="text-2xl sm:text-3xl font-bold text-purple-500">1.299.000đ</p>
                     </div>
 
                     <div class="text-gray-700 leading-relaxed">
-                        Bó hoa hồng đỏ cao cấp nhập khẩu từ Châu Âu, được chọn lọc kỹ càng từ những vườn hoa danh tiếng. Mỗi bông hoa đều tươi thắm, cánh hoa mềm mại và hương thơm quyến rũ. Thích hợp cho những dịp đặc biệt như Valentine, sinh nhật người yêu hoặc kỷ niệm ngày cưới.
+                        Thiết kế hoa trang trí sự kiện cao cấp, phối màu sang trọng và hiện đại. Phù hợp cho tiệc cưới, khai trương, sinh nhật hoặc hội nghị. Sản phẩm được cắm tỉ mỉ bởi florist chuyên nghiệp, tạo điểm nhấn nổi bật cho không gian.
                     </div>
 
                     <div>
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Thông tin chi tiết</h3>
                         <ul class="space-y-2 text-gray-700">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Số lượng: 12-15 bông hoa hồng đỏ</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Xuất xứ: Nhập khẩu từ Hà Lan</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Độ tươi: 7-10 ngày</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Kèm theo: Giấy gói cao cấp và thiệp chúc mừng</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Phù hợp: Valentine, sinh nhật, kỷ niệm</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Loại hoa: Hoa hồng, ly, cúc, baby đa màu</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Kích thước: Bộ trang trí lớn</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Phong cách: Sang trọng, đa màu sắc</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Kèm theo: Khung, phụ kiện trang trí</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Phù hợp: Tiệc cưới, khai trương, sinh nhật</li>
                         </ul>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                        
                         <div class="sm:col-span-2 flex space-x-3 sm:space-x-4 items-end">
                             <button class="flex-1 bg-gradient-to-r from-pink-500 to-green-500 text-white py-3 px-6 rounded-lg font-semibold ripple hover:shadow-lg">
                                 <i class="fas fa-phone mr-2"></i>Liên hệ đặt hàng
@@ -159,20 +172,20 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <a href="HoaSinhNhatRucRoDetail.html" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover block">
                     <div class="h-40 bg-gray-100">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fdf2f8'/><circle cx='150' cy='115' r='40' fill='%23fce7f3'/><circle cx='135' cy='100' r='22' fill='%23f9a8d4'/><circle cx='165' cy='100' r='22' fill='%23f9a8d4'/></svg>" alt="Hoa sinh nhật rực rỡ" class="w-full h-full object-cover">
+                        <img src="images/SinhNhat/HoasinhNhat1.png" alt="Hoa sinh nhật rực rỡ" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
                         <div class="font-semibold text-gray-800">Hoa sinh nhật rực rỡ</div>
                         <div class="text-pink-500 font-bold">349.000đ</div>
                     </div>
                 </a>
-                <a href="#" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover block">
+                <a href="HoaHongDetail.html" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover block">
                     <div class="h-40 bg-gray-100">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fafafa'/><circle cx='150' cy='120' r='40' fill='%23ffffff'/></svg>" alt="Hoa hồng trắng tinh khôi" class="w-full h-full object-cover">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fce7f3'/><circle cx='150' cy='120' r='40' fill='%23f472b6'/><circle cx='130' cy='100' r='25' fill='%23ec4899'/><circle cx='170' cy='100' r='25' fill='%23ec4899'/><circle cx='150' cy='80' r='20' fill='%23db2777'/></svg>" alt="Hoa hồng đỏ Châu Âu" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
-                        <div class="font-semibold text-gray-800">Hoa hồng trắng tinh khôi</div>
-                        <div class="text-gray-600 font-bold">359.000đ</div>
+                        <div class="font-semibold text-gray-800">Hoa hồng đỏ Châu Âu</div>
+                        <div class="text-pink-500 font-bold">399.000đ</div>
                     </div>
                 </a>
                 <a href="#" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover block">
@@ -196,7 +209,7 @@
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="text-3xl">🌹</div>
                         <div>
-                            <h4 class="text-xl font-playfair font-bold">GiangNhan Flower Shop</h4>
+                            <h4 class="text-xl font-playfair font-bold">GiangNhạn Flower Shop</h4>
                             <p class="text-pink-400 font-semibold">HOA TƯƠI 386</p>
                         </div>
                     </div>
@@ -236,7 +249,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-12 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 GiangNhan Flower Shop - HOA TƯƠI 386. Tất cả quyền được bảo lưu.</p>
+                <p class="text-gray-400">&copy; 2024 GiangNhạn Flower Shop - HOA TƯƠI 386. Tất cả quyền được bảo lưu.</p>
             </div>
         </div>
     </footer>
@@ -267,13 +280,20 @@
                     document.removeEventListener('click', closeMenuOutside);
                 }
             });
-        });
 
-        function changeQty(delta) {
-            const input = document.getElementById('qty');
-            const next = Math.max(1, parseInt(input.value || '1', 10) + delta);
-            input.value = next;
-        }
+            // gallery thumbnail click -> update main image
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('[data-thumb]');
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    const nextSrc = thumb.getAttribute('data-large');
+                    if (!nextSrc || !mainImage) return;
+                    mainImage.src = nextSrc;
+                    thumbnails.forEach(t => t.classList.remove('ring-2', 'ring-pink-500'));
+                    thumb.classList.add('ring-2', 'ring-pink-500');
+                });
+            });
+        });
     </script>
 </body>
 
