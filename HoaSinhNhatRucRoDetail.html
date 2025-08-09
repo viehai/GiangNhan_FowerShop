@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoa sinh nhật rực rỡ - GiangNhan Flower Shop</title>
+    <meta name="description" content="Chi tiết sản phẩm Hoa sinh nhật rực rỡ - bó hoa tươi rạng rỡ, thiết kế tinh tế, phù hợp làm quà sinh nhật ý nghĩa.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .flower-icon { background: linear-gradient(45deg, #f472b6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .ripple { position: relative; overflow: hidden; }
+        .ripple::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: rgba(255,255,255,0.3); transform: translate(-50%,-50%); transition: width .6s, height .6s; }
+        .ripple:hover::before { width: 300px; height: 300px; }
+        .card-hover { transition: all .3s cubic-bezier(.4,0,.2,1); }
+        .card-hover:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 25px 50px -12px rgba(0,0,0,.15); }
+        .product-zoom { overflow: hidden; }
+        .product-zoom img { transition: transform .3s ease; }
+        .product-zoom:hover img { transform: scale(1.05); }
+        #mobile-menu.show { transform: scaleY(1); }
+    </style>
+    <script>
+        // Preload images for smoother gallery experience
+        (function() {
+            const sources = [
+                'images/SinhNhat/HoaSinhNhat2.png',
+                'images/SinhNhat/HoasinhNhat1.png'
+            ];
+            sources.forEach(src => { const img = new Image(); img.src = src; });
+        })();
+    </script>
+</head>
+
+<body class="font-poppins bg-gradient-to-br from-pink-50 to-green-50">
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="text-3xl flower-icon">🌹</div>
+                    <div>
+                        <h1 class="text-xl font-playfair font-bold text-gray-800">GiangNhan Flower Shop</h1>
+                        <p class="text-sm text-pink-600 font-semibold">HOA TƯƠI 386</p>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-pink-500 transition-colors relative group">Trang chủ
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="index.html#products" class="text-gray-700 hover:text-pink-500 transition-colors relative group">Hoa tươi
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="index.html#collections" class="text-gray-700 hover:text-pink-500 transition-colors relative group">Dịch vụ
+                        <span class="absolute bottom-0 left-0 w-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                    </a>
+                </nav>
+
+                <div id="mobile-menu" class="md:hidden fixed top-16 left-0 right-0 bg-white shadow-md transform scale-y-0 origin-top transition-transform duration-300 z-50">
+                    <a href="index.html" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Trang chủ</a>
+                    <a href="index.html#products" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Hoa tươi</a>
+                    <a href="index.html#collections" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Dịch vụ</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="md:hidden p-2 text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="container mx-auto px-6 py-4 text-sm text-gray-600">
+        <a href="index.html" class="hover:text-pink-500">Trang chủ</a>
+        <span class="mx-2">/</span>
+        <a href="index.html#products" class="hover:text-pink-500">Sinh nhật</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-800">Hoa sinh nhật rực rỡ</span>
+    </nav>
+
+    <!-- Product Detail -->
+    <main class="container mx-auto px-6 pb-16">
+        <div class="bg-white rounded-2xl shadow-lg p-4 sm:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+                <!-- Gallery -->
+                <div class="space-y-4">
+                    <div class="product-zoom w-full h-[26rem] sm:h-[34rem] bg-gray-100 rounded-xl overflow-hidden">
+                        <img id="mainImage" src="images/SinhNhat/HoaSinhNhat1.png" alt="Hoa sinh nhật rực rỡ" class="w-full h-full object-contain">
+                    </div>
+                    <div class="mt-6 flex justify-center gap-4">
+                        <div class="h-24 sm:h-28 bg-gray-100 rounded-lg overflow-hidden cursor-pointer ring-2 ring-pink-500" data-thumb data-large="images/SinhNhat/HoasinhNhat1.png">
+                            <img src="images/SinhNhat/HoasinhNhat1.png" alt="Hoa sinh nhật rực rỡ - góc 1" class="w-full h-full object-contain">
+                        </div>
+                        <div class="h-24 sm:h-28 bg-gray-100 rounded-lg overflow-hidden cursor-pointer" data-thumb data-large="images/SinhNhat/HoaSinhNhat2.png">
+                            <img src="images/SinhNhat/HoaSinhNhat2.png" alt="Hoa sinh nhật rực rỡ - góc 2" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="space-y-5">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-playfair font-bold text-gray-800 mb-2">Hoa sinh nhật rực rỡ</h2>
+                        <div class="flex items-center space-x-4 mb-3">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm">(18 đánh giá)</span>
+                        </div>
+                        <p class="text-2xl sm:text-3xl font-bold text-pink-500">349.000đ</p>
+                    </div>
+
+                    <div class="text-gray-700 leading-relaxed">
+                        Bó hoa sinh nhật tươi tắn, phối màu rực rỡ mang đến niềm vui và lời chúc tốt đẹp. Phù hợp tặng bạn bè, người thân trong ngày sinh nhật để lan tỏa năng lượng tích cực và hạnh phúc.
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Thông tin chi tiết</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Số lượng: 10-15 bông phối màu</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Xuất xứ: Hoa nội địa cao cấp</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Độ tươi: 5-7 ngày</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Kèm theo: Thiệp chúc mừng sinh nhật</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Phù hợp: Tặng bạn bè, đồng nghiệp, người thân</li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                        
+                        <div class="sm:col-span-2 flex space-x-3 sm:space-x-4 items-end">
+                            <button class="flex-1 bg-gradient-to-r from-pink-500 to-green-500 text-white py-3 px-6 rounded-lg font-semibold ripple hover:shadow-lg">
+                                <i class="fas fa-phone mr-2"></i>Liên hệ đặt hàng
+                            </button>
+                            <button class="px-4 sm:px-6 py-3 border-2 border-pink-500 text-pink-500 rounded-lg font-semibold hover:bg-pink-500 hover:text-white">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-2">Dịch vụ của chúng tôi</h4>
+                        <ul class="space-y-1 text-sm text-gray-600">
+                            <li><i class="fas fa-truck text-green-500 mr-2"></i>Giao hàng miễn phí trong nội thành</li>
+                            <li><i class="fas fa-clock text-blue-500 mr-2"></i>Giao hàng nhanh trong 2-4 giờ</li>
+                            <li><i class="fas fa-shield-alt text-purple-500 mr-2"></i>Bảo đảm hoa tươi 100%</li>
+                            <li><i class="fas fa-headset text-orange-500 mr-2"></i>Tư vấn miễn phí 24/7</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related products (optional) -->
+        <section class="mt-10">
+            <h3 class="text-xl sm:text-2xl font-playfair font-bold text-gray-800 mb-4">Có thể bạn cũng thích</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="HoaHongDetail.html" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover block">
+                    <div class="h-40 bg-gray-100">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fdf2f8'/><circle cx='150' cy='115' r='40' fill='%23fce7f3'/><circle cx='135' cy='100' r='22' fill='%23f9a8d4'/><circle cx='165' cy='100' r='22' fill='%23f9a8d4'/></svg>" alt="Hoa hồng đỏ Châu Âu" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <div class="font-semibold text-gray-800">Hoa hồng đỏ Châu Âu</div>
+                        <div class="text-pink-500 font-bold">399.000đ</div>
+                    </div>
+                </a>
+                <a href="#" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover block">
+                    <div class="h-40 bg-gray-100">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fafafa'/><circle cx='150' cy='120' r='40' fill='%23ffffff'/></svg>" alt="Hoa hồng trắng tinh khôi" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <div class="font-semibold text-gray-800">Hoa hồng trắng tinh khôi</div>
+                        <div class="text-gray-600 font-bold">359.000đ</div>
+                    </div>
+                </a>
+                <a href="#" class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover block">
+                    <div class="h-40 bg-gray-100">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23f0fdf4'/><circle cx='130' cy='100' r='25' fill='%23fbbf24'/></svg>" alt="Hoa tân gia may mắn" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <div class="font-semibold text-gray-800">Hoa tân gia may mắn</div>
+                        <div class="text-green-500 font-bold">499.000đ</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-16 mt-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="text-3xl">🌹</div>
+                        <div>
+                            <h4 class="text-xl font-playfair font-bold">GiangNhan Flower Shop</h4>
+                            <p class="text-pink-400 font-semibold">HOA TƯƠI 386</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">Chuyên cung cấp hoa tươi phong cách Châu Âu cao cấp cho mọi dịp đặc biệt.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-lg mb-4">Sản phẩm</h5>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#products" class="text-gray-400 hover:text-white transition-colors">Hoa tươi</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hoa khô</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cây cảnh</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Phụ kiện</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-lg mb-4">Dịch vụ</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Giao hàng nhanh</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Thiết kế theo yêu cầu</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tư vấn miễn phí</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Bảo hành chất lượng</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-lg mb-4">Liên hệ</h5>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">📍 123 Đường Hoa, Quận 1, TP.HCM</li>
+                        <li class="text-gray-400">📞 0123 456 789</li>
+                        <li class="text-gray-400">✉️ info@bloomgarden.vn</li>
+                        <li class="text-gray-400">🕒 8:00 - 22:00 hàng ngày</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 GiangNhan Flower Shop - HOA TƯƠI 386. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating phone button -->
+    <button class="floating-btn bg-gradient-to-r from-pink-500 to-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all fixed bottom-6 right-6">
+        <i class="fas fa-phone text-xl"></i>
+    </button>
+
+    <script>
+        // mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.getElementById('mobile-menu');
+            function closeMenuOutside(event) {
+                if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                    mobileMenu.classList.remove('show');
+                    document.removeEventListener('click', closeMenuOutside);
+                }
+            }
+            menuButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = mobileMenu.classList.contains('show');
+                mobileMenu.classList.toggle('show');
+                if (!isOpen) {
+                    setTimeout(() => { document.addEventListener('click', closeMenuOutside); }, 0);
+                } else {
+                    document.removeEventListener('click', closeMenuOutside);
+                }
+            });
+
+            // gallery thumbnail click -> update main image
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('[data-thumb]');
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    const nextSrc = thumb.getAttribute('data-large');
+                    if (!nextSrc || !mainImage) return;
+                    // swap main image
+                    mainImage.src = nextSrc;
+                    // active ring style
+                    thumbnails.forEach(t => t.classList.remove('ring-2', 'ring-pink-500'));
+                    thumb.classList.add('ring-2', 'ring-pink-500');
+                });
+            });
+        });
+
+        function changeQty(delta) {
+            const input = document.getElementById('qty');
+            const next = Math.max(1, parseInt(input.value || '1', 10) + delta);
+            input.value = next;
+        }
+    </script>
+</body>
+
+</html>
+
+

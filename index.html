@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giang Nhạn - Cửa hàng hoa tươi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .font-playfair { font-family: 'Playfair Display', serif; }
-        .font-poppins { font-family: 'Poppins', sans-serif; }
-        
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
         .hero-bg {
             background: linear-gradient(135deg, rgba(252, 231, 243, 0.9), rgba(240, 253, 244, 0.9)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="flowers" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="30" fill="%23fce7f3" opacity="0.3"/><circle cx="150" cy="150" r="25" fill="%23f0fdf4" opacity="0.3"/><circle cx="100" cy="120" r="20" fill="%23fef3c7" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(%23flowers)"/></svg>');
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="flowers" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="30" fill="%23fce7f3" opacity="0.3"/><circle cx="150" cy="150" r="25" fill="%23f0fdf4" opacity="0.3"/><circle cx="100" cy="120" r="20" fill="%23fef3c7" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(%23flowers)"/></svg>');
         }
-        
+
         .card-hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .card-hover:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
         }
-        
+
         .ripple {
             position: relative;
             overflow: hidden;
         }
-        
+
         .ripple::before {
             content: '';
             position: absolute;
@@ -42,45 +50,58 @@
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
         }
-        
+
         .ripple:hover::before {
             width: 300px;
             height: 300px;
         }
-        
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
-        
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .parallax {
             transform: translateY(0);
             transition: transform 0.1s ease-out;
         }
-        
+
         .flower-icon {
             background: linear-gradient(45deg, #f472b6, #10b981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .cart-count {
             animation: bounce 0.5s ease-in-out;
         }
-        
+
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
         }
-        
+
         .floating-btn {
             position: fixed;
             bottom: 30px;
@@ -88,43 +109,56 @@
             z-index: 1000;
             animation: float 3s ease-in-out infinite;
         }
-        
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
-        
+
         .progress-bar {
             width: 33.33%;
             transition: width 0.5s ease;
         }
-        
+
         .step-active {
             background: linear-gradient(45deg, #f472b6, #10b981);
         }
-        
+
         .product-zoom {
             overflow: hidden;
         }
-        
+
         .product-zoom img {
             transition: transform 0.3s ease;
         }
-        
+
         .product-zoom:hover img {
             transform: scale(1.1);
         }
-        
+
         .mini-cart {
             transform: translateX(100%);
             transition: transform 0.3s ease;
         }
-        
+
         .mini-cart.open {
             transform: translateX(0);
         }
+
+        #mobile-menu.show {
+            transform: scaleY(1);
+        }
     </style>
+
 </head>
+
 <body class="font-poppins bg-gradient-to-br from-pink-50 to-green-50">
     <!-- Header -->
     <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
@@ -137,34 +171,50 @@
                         <p class="text-sm text-pink-600 font-semibold">HOA TƯƠI 386</p>
                     </div>
                 </div>
-                
+
                 <nav class="hidden md:flex space-x-8">
                     <a href="#" class="text-gray-700 hover:text-pink-500 transition-colors relative group">
                         Trang chủ
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
                     </a>
                     <a href="#products" class="text-gray-700 hover:text-pink-500 transition-colors relative group">
                         Hoa tươi
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
                     </a>
                     <a href="#collections" class="text-gray-700 hover:text-pink-500 transition-colors relative group">
                         Hoa sinh nhật
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
                     </a>
                     <a href="#" class="text-gray-700 hover:text-pink-500 transition-colors relative group">
                         Hoa tân gia
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
                     </a>
                     <a href="#" class="text-gray-700 hover:text-pink-500 transition-colors relative group">
                         Hoa tang lễ
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
                     </a>
                     <a href="#" class="text-gray-700 hover:text-pink-500 transition-colors relative group">
                         Liên hệ
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 transition-all group-hover:w-full"></span>
                     </a>
                 </nav>
-                
+
+                <div id="mobile-menu"
+                    class="md:hidden fixed top-16 left-0 right-0 bg-white shadow-md transform scale-y-0 origin-top transition-transform duration-300 z-50">
+                    <a href="#" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Trang chủ</a>
+                    <a href="#products" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Hoa tươi</a>
+                    <a href="#collections" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Hoa sinh nhật</a>
+                    <a href="#" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Hoa tân gia</a>
+                    <a href="#" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Hoa tang lễ</a>
+                    <a href="#" class="block px-6 py-4 text-gray-700 hover:bg-pink-100">Liên hệ</a>
+                </div>
+
                 <div class="flex items-center space-x-4">
                     <button class="md:hidden p-2 text-gray-700">
                         <i class="fas fa-bars text-xl"></i>
@@ -178,26 +228,33 @@
     <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
         <div class="container mx-auto px-6 text-center relative z-10">
             <div class="fade-in">
-                <h2 class="text-5xl md:text-7xl font-playfair font-bold text-gray-800 mb-6">
+                <h2 class="text-3xl sm:text-5xl md:text-7xl font-playfair font-bold text-gray-800 mb-6 leading-tight">
                     Hoa tươi<br>
-                    <span class="bg-gradient-to-r from-pink-500 to-green-500 bg-clip-text text-transparent">phong cách Châu Âu</span><br>
+                    <span class="bg-gradient-to-r from-pink-500 to-green-500 bg-clip-text text-transparent">phong cách
+                        Châu Âu</span><br>
                     cho mọi dịp đặc biệt
                 </h2>
-                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                    Chuyên cung cấp hoa tươi cao cấp, hoa sinh nhật, hoa tân gia, hoa tang lễ và bình cắm hoa đẹp theo phong cách Châu Âu tinh tế
+                <p class="text-base sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto px-4">
+                    Chuyên cung cấp hoa tươi cao cấp, hoa sinh nhật, hoa tân gia, hoa tang lễ và bình cắm hoa đẹp theo
+                    phong cách Châu Âu tinh tế
                 </p>
-                <button onclick="scrollToProducts()" class="bg-gradient-to-r from-pink-500 to-green-500 text-white px-8 py-4 rounded-full text-lg font-semibold ripple hover:shadow-lg transform hover:scale-105 transition-all">
+                <button onclick="scrollToProducts()"
+                    class="bg-gradient-to-r from-pink-500 to-green-500 text-white px-8 py-4 rounded-full text-lg font-semibold ripple hover:shadow-lg transform hover:scale-105 transition-all">
                     Khám phá bộ sưu tập
                 </button>
             </div>
         </div>
-        
+
         <!-- Floating flowers animation -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-20 left-10 text-4xl opacity-30 animate-bounce" style="animation-delay: 0s;">🌸</div>
-            <div class="absolute top-40 right-20 text-3xl opacity-40 animate-bounce" style="animation-delay: 1s;">🌺</div>
-            <div class="absolute bottom-40 left-20 text-5xl opacity-20 animate-bounce" style="animation-delay: 2s;">🌻</div>
-            <div class="absolute bottom-20 right-10 text-4xl opacity-30 animate-bounce" style="animation-delay: 0.5s;">🌷</div>
+            <div class="absolute top-20 left-10 text-4xl opacity-30 animate-bounce" style="animation-delay: 0s;">🌸
+            </div>
+            <div class="absolute top-40 right-20 text-3xl opacity-40 animate-bounce" style="animation-delay: 1s;">🌺
+            </div>
+            <div class="absolute bottom-40 left-20 text-5xl opacity-20 animate-bounce" style="animation-delay: 2s;">🌻
+            </div>
+            <div class="absolute bottom-20 right-10 text-4xl opacity-30 animate-bounce" style="animation-delay: 0.5s;">
+                🌷</div>
         </div>
     </section>
 
@@ -206,50 +263,67 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h3 class="text-4xl font-playfair font-bold text-gray-800 mb-4">Hoa tươi phong cách Châu Âu</h3>
-                <p class="text-gray-600 text-lg">Hoa hồng cao cấp, bình cắm hoa đẹp và thiết kế hoa cho mọi dịp đặc biệt</p>
+                <p class="text-gray-600 text-lg">Hoa hồng cao cấp, bình cắm hoa đẹp và thiết kế hoa cho mọi dịp đặc biệt
+                </p>
             </div>
-            
+
             <!-- Filter -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in">
-                <button onclick="filterProducts('all')" class="filter-btn active px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all">
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 fade-in px-4">
+                <button onclick="filterProducts('all')"
+                    class="filter-btn active px-3 sm:px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all text-sm sm:text-base">
                     Tất cả
                 </button>
-                <button onclick="filterProducts('roses')" class="filter-btn px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all">
+                <button onclick="filterProducts('roses')"
+                    class="filter-btn px-3 sm:px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all text-sm sm:text-base">
                     Hoa hồng
                 </button>
-                <button onclick="filterProducts('birthday')" class="filter-btn px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all">
+                <button onclick="filterProducts('birthday')"
+                    class="filter-btn px-3 sm:px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all text-sm sm:text-base">
                     Sinh nhật
                 </button>
-                <button onclick="filterProducts('opening')" class="filter-btn px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all">
+                <button onclick="filterProducts('opening')"
+                    class="filter-btn px-3 sm:px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all text-sm sm:text-base">
                     Tân gia
                 </button>
-                <button onclick="filterProducts('funeral')" class="filter-btn px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all">
+                <button onclick="filterProducts('funeral')"
+                    class="filter-btn px-3 sm:px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all text-sm sm:text-base">
                     Tang lễ
                 </button>
-                <button onclick="filterProducts('vase')" class="filter-btn px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all">
+                <button onclick="filterProducts('vase')"
+                    class="filter-btn px-3 sm:px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all text-sm sm:text-base">
                     Bình cắm
                 </button>
+                <button onclick="filterProducts('events')"
+                    class="filter-btn px-3 sm:px-6 py-2 rounded-full border-2 border-pink-200 text-pink-600 hover:bg-pink-500 hover:text-white transition-all text-sm sm:text-base">
+                    Sự kiện
+                </button>
             </div>
-            
+
             <!-- Products Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                 <!-- Product 1 - Hoa hồng đỏ -->
-                <div class="product-card roses birthday bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                <div
+                    class="product-card roses birthday bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="product-zoom relative">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fce7f3'/><circle cx='150' cy='120' r='40' fill='%23f472b6'/><circle cx='130' cy='100' r='25' fill='%23ec4899'/><circle cx='170' cy='100' r='25' fill='%23ec4899'/><circle cx='150' cy='80' r='20' fill='%23db2777'/><rect x='145' y='160' width='10' height='80' fill='%2316a34a'/><ellipse cx='120' cy='200' rx='15' ry='8' fill='%2316a34a'/><ellipse cx='180' cy='180' rx='12' ry='6' fill='%2316a34a'/></svg>" alt="Hoa hồng đỏ Châu Âu" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
-                            <button onclick="viewProduct('Hoa hồng đỏ Châu Âu', 'roses')" class="bg-white text-pink-500 p-3 rounded-full hover:bg-pink-500 hover:text-white transition-all">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fce7f3'/><circle cx='150' cy='120' r='40' fill='%23f472b6'/><circle cx='130' cy='100' r='25' fill='%23ec4899'/><circle cx='170' cy='100' r='25' fill='%23ec4899'/><circle cx='150' cy='80' r='20' fill='%23db2777'/><rect x='145' y='160' width='10' height='80' fill='%2316a34a'/><ellipse cx='120' cy='200' rx='15' ry='8' fill='%2316a34a'/><ellipse cx='180' cy='180' rx='12' ry='6' fill='%2316a34a'/></svg>"
+                            alt="Hoa hồng đỏ Châu Âu" class="w-full h-48 sm:h-64 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button onclick="window.location.href='HoaHongDetail.html'"
+                                class="bg-white text-pink-500 p-3 rounded-full hover:bg-pink-500 hover:text-white transition-all">
                                 <i class="fas fa-eye"></i>
                                 <span class="ml-2">Xem chi tiết</span>
                             </button>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h4 class="font-playfair font-semibold text-xl text-gray-800 mb-2">Hoa hồng đỏ Châu Âu</h4>
-                        <p class="text-gray-600 mb-4">Bó hoa hồng đỏ cao cấp nhập khẩu, thiết kế tinh tế</p>
+                    <div class="p-4 sm:p-6">
+                        <h4 class="font-playfair font-semibold text-lg sm:text-xl text-gray-800 mb-2">Hoa hồng đỏ Châu
+                            Âu</h4>
+                        <p class="text-gray-600 mb-4 text-sm sm:text-base">Bó hoa hồng đỏ cao cấp nhập khẩu, thiết kế
+                            tinh tế</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-pink-500">399.000đ</span>
-                            <div class="flex text-yellow-400">
+                            <span class="text-xl sm:text-2xl font-bold text-pink-500">399.000đ</span>
+                            <div class="flex text-yellow-400 text-sm">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -261,11 +335,15 @@
                 </div>
 
                 <!-- Product 2 - Bình cắm hoa -->
-                <div class="product-card vase opening bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                <div
+                    class="product-card vase opening bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="product-zoom relative">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fef3c7'/><rect x='120' y='180' width='60' height='80' rx='8' fill='%23f3f4f6' stroke='%23d1d5db' stroke-width='2'/><circle cx='140' cy='140' r='20' fill='%23fbbf24'/><circle cx='160' cy='130' r='18' fill='%23f59e0b'/><circle cx='150' cy='110' r='15' fill='%23f59e0b'/><rect x='145' y='160' width='4' height='20' fill='%2316a34a'/><rect x='155' y='155' width='4' height='25' fill='%2316a34a'/><ellipse cx='135' cy='150' rx='8' ry='4' fill='%2316a34a'/></svg>" alt="Bình cắm hoa Châu Âu" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
-                            <button onclick="viewProduct('Bình cắm hoa Châu Âu', 'vase')" class="bg-white text-yellow-500 p-3 rounded-full hover:bg-yellow-500 hover:text-white transition-all">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fef3c7'/><rect x='120' y='180' width='60' height='80' rx='8' fill='%23f3f4f6' stroke='%23d1d5db' stroke-width='2'/><circle cx='140' cy='140' r='20' fill='%23fbbf24'/><circle cx='160' cy='130' r='18' fill='%23f59e0b'/><circle cx='150' cy='110' r='15' fill='%23f59e0b'/><rect x='145' y='160' width='4' height='20' fill='%2316a34a'/><rect x='155' y='155' width='4' height='25' fill='%2316a34a'/><ellipse cx='135' cy='150' rx='8' ry='4' fill='%2316a34a'/></svg>"
+                            alt="Bình cắm hoa Châu Âu" class="w-full h-64 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button onclick="viewProduct('Bình cắm hoa Châu Âu', 'vase')"
+                                class="bg-white text-yellow-500 p-3 rounded-full hover:bg-yellow-500 hover:text-white transition-all">
                                 <i class="fas fa-eye"></i>
                                 <span class="ml-2">Xem chi tiết</span>
                             </button>
@@ -290,9 +368,12 @@
                 <!-- Product 3 - Hoa tang lễ -->
                 <div class="product-card funeral bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="product-zoom relative">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23f9fafb'/><circle cx='150' cy='110' r='35' fill='%23ffffff'/><circle cx='135' cy='95' r='20' fill='%23f3f4f6'/><circle cx='165' cy='95' r='20' fill='%23f3f4f6'/><circle cx='150' cy='125' r='18' fill='%23f3f4f6'/><circle cx='125' cy='110' r='15' fill='%23f3f4f6'/><circle cx='175' cy='110' r='15' fill='%23f3f4f6'/><rect x='145' y='145' width='10' height='70' fill='%2316a34a'/><ellipse cx='130' cy='170' rx='10' ry='5' fill='%2316a34a'/><ellipse cx='170' cy='180' rx='8' ry='4' fill='%2316a34a'/><rect x='100' y='220' width='100' height='40' rx='5' fill='%23374151' opacity='0.1'/></svg>" alt="Hoa tang lễ trang nghiêm" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
-                            <button onclick="viewProduct('Hoa tang lễ trang nghiêm', 'funeral')" class="bg-white text-gray-600 p-3 rounded-full hover:bg-gray-600 hover:text-white transition-all">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23f9fafb'/><circle cx='150' cy='110' r='35' fill='%23ffffff'/><circle cx='135' cy='95' r='20' fill='%23f3f4f6'/><circle cx='165' cy='95' r='20' fill='%23f3f4f6'/><circle cx='150' cy='125' r='18' fill='%23f3f4f6'/><circle cx='125' cy='110' r='15' fill='%23f3f4f6'/><circle cx='175' cy='110' r='15' fill='%23f3f4f6'/><rect x='145' y='145' width='10' height='70' fill='%2316a34a'/><ellipse cx='130' cy='170' rx='10' ry='5' fill='%2316a34a'/><ellipse cx='170' cy='180' rx='8' ry='4' fill='%2316a34a'/><rect x='100' y='220' width='100' height='40' rx='5' fill='%23374151' opacity='0.1'/></svg>"
+                            alt="Hoa tang lễ trang nghiêm" class="w-full h-64 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button onclick="viewProduct('Hoa tang lễ trang nghiêm', 'funeral')"
+                                class="bg-white text-gray-600 p-3 rounded-full hover:bg-gray-600 hover:text-white transition-all">
                                 <i class="fas fa-eye"></i>
                                 <span class="ml-2">Xem chi tiết</span>
                             </button>
@@ -315,11 +396,14 @@
                 </div>
 
                 <!-- Product 4 - Hoa sinh nhật -->
-                <div class="product-card birthday roses bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                <div
+                    class="product-card birthday roses bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="product-zoom relative">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fdf2f8'/><circle cx='150' cy='115' r='40' fill='%23fce7f3'/><circle cx='135' cy='100' r='22' fill='%23f9a8d4'/><circle cx='165' cy='100' r='22' fill='%23f9a8d4'/><circle cx='150' cy='130' r='20' fill='%23f9a8d4'/><circle cx='125' cy='115' r='18' fill='%23f9a8d4'/><circle cx='175' cy='115' r='18' fill='%23f9a8d4'/><rect x='145' y='155' width='10' height='75' fill='%2316a34a'/><ellipse cx='128' cy='180' rx='12' ry='6' fill='%2316a34a'/><ellipse cx='172' cy='190' rx='10' ry='5' fill='%2316a34a'/><rect x='140' y='240' width='20' height='8' rx='2' fill='%23fbbf24'/></svg>" alt="Hoa sinh nhật rực rỡ" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
-                            <button onclick="viewProduct('Hoa sinh nhật rực rỡ', 'birthday')" class="bg-white text-pink-500 p-3 rounded-full hover:bg-pink-500 hover:text-white transition-all">
+                        <img src="images/SinhNhat/HoasinhNhat1.png" alt="Hoa sinh nhật rực rỡ" class="w-full h-64 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button onclick="window.location.href='HoaSinhNhatRucRoDetail.html'"
+                                class="bg-white text-pink-500 p-3 rounded-full hover:bg-pink-500 hover:text-white transition-all">
                                 <i class="fas fa-eye"></i>
                                 <span class="ml-2">Xem chi tiết</span>
                             </button>
@@ -342,11 +426,15 @@
                 </div>
 
                 <!-- Product 5 - Hoa tân gia -->
-                <div class="product-card opening vase bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                <div
+                    class="product-card opening vase bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="product-zoom relative">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23f0fdf4'/><circle cx='130' cy='100' r='25' fill='%23fbbf24'/><circle cx='170' cy='110' r='22' fill='%23f59e0b'/><circle cx='150' cy='80' r='20' fill='%23fbbf24'/><circle cx='110' cy='120' r='18' fill='%23f59e0b'/><circle cx='190' cy='130' r='20' fill='%23fbbf24'/><rect x='125' y='140' width='8' height='60' fill='%2316a34a'/><rect x='165' y='150' width='8' height='50' fill='%2316a34a'/><rect x='145' y='120' width='8' height='80' fill='%2316a34a'/><rect x='105' y='160' width='8' height='40' fill='%2316a34a'/><rect x='185' y='170' width='8' height='30' fill='%2316a34a'/></svg>" alt="Hoa tân gia may mắn" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
-                            <button onclick="viewProduct('Hoa tân gia may mắn', 'opening')" class="bg-white text-green-500 p-3 rounded-full hover:bg-green-500 hover:text-white transition-all">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23f0fdf4'/><circle cx='130' cy='100' r='25' fill='%23fbbf24'/><circle cx='170' cy='110' r='22' fill='%23f59e0b'/><circle cx='150' cy='80' r='20' fill='%23fbbf24'/><circle cx='110' cy='120' r='18' fill='%23f59e0b'/><circle cx='190' cy='130' r='20' fill='%23fbbf24'/><rect x='125' y='140' width='8' height='60' fill='%2316a34a'/><rect x='165' y='150' width='8' height='50' fill='%2316a34a'/><rect x='145' y='120' width='8' height='80' fill='%2316a34a'/><rect x='105' y='160' width='8' height='40' fill='%2316a34a'/><rect x='185' y='170' width='8' height='30' fill='%2316a34a'/></svg>"
+                            alt="Hoa tân gia may mắn" class="w-full h-64 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button onclick="viewProduct('Hoa tân gia may mắn', 'opening')"
+                                class="bg-white text-green-500 p-3 rounded-full hover:bg-green-500 hover:text-white transition-all">
                                 <i class="fas fa-eye"></i>
                                 <span class="ml-2">Xem chi tiết</span>
                             </button>
@@ -369,11 +457,15 @@
                 </div>
 
                 <!-- Product 6 - Hoa hồng trắng -->
-                <div class="product-card roses funeral bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                <div
+                    class="product-card roses funeral bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="product-zoom relative">
-                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fafafa'/><circle cx='150' cy='120' r='40' fill='%23ffffff'/><circle cx='130' cy='100' r='25' fill='%23f8fafc'/><circle cx='170' cy='100' r='25' fill='%23f8fafc'/><circle cx='150' cy='80' r='20' fill='%23f1f5f9'/><rect x='145' y='160' width='10' height='80' fill='%2316a34a'/><ellipse cx='120' cy='200' rx='15' ry='8' fill='%2316a34a'/><ellipse cx='180' cy='180' rx='12' ry='6' fill='%2316a34a'/></svg>" alt="Hoa hồng trắng tinh khôi" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
-                            <button onclick="viewProduct('Hoa hồng trắng tinh khôi', 'roses')" class="bg-white text-gray-500 p-3 rounded-full hover:bg-gray-500 hover:text-white transition-all">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fafafa'/><circle cx='150' cy='120' r='40' fill='%23ffffff'/><circle cx='130' cy='100' r='25' fill='%23f8fafc'/><circle cx='170' cy='100' r='25' fill='%23f8fafc'/><circle cx='150' cy='80' r='20' fill='%23f1f5f9'/><rect x='145' y='160' width='10' height='80' fill='%2316a34a'/><ellipse cx='120' cy='200' rx='15' ry='8' fill='%2316a34a'/><ellipse cx='180' cy='180' rx='12' ry='6' fill='%2316a34a'/></svg>"
+                            alt="Hoa hồng trắng tinh khôi" class="w-full h-64 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button onclick="viewProduct('Hoa hồng trắng tinh khôi', 'roses')"
+                                class="bg-white text-gray-500 p-3 rounded-full hover:bg-gray-500 hover:text-white transition-all">
                                 <i class="fas fa-eye"></i>
                                 <span class="ml-2">Xem chi tiết</span>
                             </button>
@@ -394,6 +486,67 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Product 7 - Hoa sự kiện sang trọng -->
+                <div
+                    class="product-card events opening bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <div class="product-zoom relative">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23f8fafc'/><circle cx='120' cy='80' r='25' fill='%23a855f7'/><circle cx='180' cy='90' r='22' fill='%23ec4899'/><circle cx='150' cy='60' r='20' fill='%23f59e0b'/><circle cx='100' cy='110' r='18' fill='%23ef4444'/><circle cx='200' cy='120' r='20' fill='%2306b6d4'/><circle cx='140' cy='110' r='15' fill='%2310b981'/><circle cx='170' cy='120' r='17' fill='%23f97316'/><rect x='115' y='130' width='6' height='50' fill='%2316a34a'/><rect x='175' y='140' width='6' height='40' fill='%2316a34a'/><rect x='145' y='110' width='6' height='70' fill='%2316a34a'/><rect x='95' y='150' width='6' height='30' fill='%2316a34a'/><rect x='195' y='160' width='6' height='20' fill='%2316a34a'/><rect x='135' y='140' width='6' height='45' fill='%2316a34a'/><rect x='165' y='150' width='6' height='35' fill='%2316a34a'/></svg>"
+                            alt="Hoa sự kiện sang trọng" class="w-full h-64 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button onclick="viewProduct('Hoa sự kiện sang trọng', 'events')"
+                                class="bg-white text-purple-500 p-3 rounded-full hover:bg-purple-500 hover:text-white transition-all">
+                                <i class="fas fa-eye"></i>
+                                <span class="ml-2">Xem chi tiết</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-playfair font-semibold text-xl text-gray-800 mb-2">Hoa sự kiện sang trọng</h4>
+                        <p class="text-gray-600 mb-4">Hoa trang trí sự kiện đa màu sắc, thiết kế chuyên nghiệp</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-purple-500">1.299.000đ</span>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 - Hoa backdrop sự kiện -->
+                <div class="product-card events bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <div class="product-zoom relative">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fdf4ff'/><rect x='50' y='50' width='200' height='150' rx='10' fill='%23f3e8ff' stroke='%23a855f7' stroke-width='2'/><circle cx='80' cy='80' r='12' fill='%23f472b6'/><circle cx='120' cy='75' r='10' fill='%23ec4899'/><circle cx='160' cy='80' r='12' fill='%23a855f7'/><circle cx='200' cy='75' r='10' fill='%23f59e0b'/><circle cx='220' cy='85' r='8' fill='%23ef4444'/><circle cx='100' cy='110' r='15' fill='%2306b6d4'/><circle cx='140' cy='105' r='12' fill='%2310b981'/><circle cx='180' cy='110' r='15' fill='%23f97316'/><circle cx='70' cy='140' r='10' fill='%23fbbf24'/><circle cx='110' cy='135' r='8' fill='%23f472b6'/><circle cx='150' cy='140' r='10' fill='%23a855f7'/><circle cx='190' cy='135' r='8' fill='%23ec4899'/><circle cx='230' cy='145' r='6' fill='%23ef4444'/><circle cx='90' cy='170' r='12' fill='%2306b6d4'/><circle cx='130' cy='165' r='10' fill='%2310b981'/><circle cx='170' cy='170' r='12' fill='%23f97316'/><circle cx='210' cy='165' r='10' fill='%23fbbf24'/></svg>"
+                            alt="Hoa backdrop sự kiện" class="w-full h-64 object-cover">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all flex items-center justify-center opacity-0 hover:opacity-100">
+                            <button onclick="viewProduct('Hoa backdrop sự kiện', 'events')"
+                                class="bg-white text-purple-500 p-3 rounded-full hover:bg-purple-500 hover:text-white transition-all">
+                                <i class="fas fa-eye"></i>
+                                <span class="ml-2">Xem chi tiết</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-playfair font-semibold text-xl text-gray-800 mb-2">Hoa backdrop sự kiện</h4>
+                        <p class="text-gray-600 mb-4">Backdrop hoa trang trí sự kiện, tiệc cưới, sinh nhật</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-purple-500">2.499.000đ</span>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -405,7 +558,7 @@
                 <h3 class="text-4xl font-playfair font-bold text-gray-800 mb-4">Dịch vụ hoa tươi chuyên nghiệp</h3>
                 <p class="text-gray-600 text-lg">Phong cách Châu Âu tinh tế cho mọi dịp đặc biệt trong cuộc sống</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="h-48 bg-gradient-to-br from-pink-400 to-red-500 flex items-center justify-center">
@@ -419,7 +572,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
                         <div class="text-6xl">🎂</div>
@@ -432,7 +585,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="h-48 bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
                         <div class="text-6xl">🏠</div>
@@ -445,7 +598,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
                     <div class="h-48 bg-gradient-to-br from-gray-300 to-gray-500 flex items-center justify-center">
                         <div class="text-6xl">🕊️</div>
@@ -454,6 +607,47 @@
                         <h4 class="font-playfair font-semibold text-xl text-gray-800 mb-2">Hoa tang lễ</h4>
                         <p class="text-gray-600 mb-4">Hoa tang lễ trang nghiêm, thể hiện lòng thành kính</p>
                         <button class="text-gray-600 font-semibold hover:text-gray-700 transition-colors">
+                            Xem ngay →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+                        <div class="text-6xl">🎉</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-playfair font-semibold text-xl text-gray-800 mb-2">Hoa sự kiện</h4>
+                        <p class="text-gray-600 mb-4">Trang trí hoa cho tiệc cưới, sinh nhật, khai trương</p>
+                        <button class="text-purple-500 font-semibold hover:text-purple-600 transition-colors">
+                            Xem ngay →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center">
+                        <div class="text-6xl">🏢</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-playfair font-semibold text-xl text-gray-800 mb-2">Hoa văn phòng</h4>
+                        <p class="text-gray-600 mb-4">Bình cắm hoa trang trí văn phòng, công ty</p>
+                        <button class="text-blue-500 font-semibold hover:text-blue-600 transition-colors">
+                            Xem ngay →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center">
+                        <div class="text-6xl">💐</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-playfair font-semibold text-xl text-gray-800 mb-2">Hoa theo yêu cầu</h4>
+                        <p class="text-gray-600 mb-4">Thiết kế hoa theo ý tưởng riêng của bạn</p>
+                        <button class="text-indigo-500 font-semibold hover:text-indigo-600 transition-colors">
                             Xem ngay →
                         </button>
                     </div>
@@ -469,7 +663,7 @@
                 <h3 class="text-4xl font-playfair font-bold text-gray-800 mb-4">Khách hàng nói gì</h3>
                 <p class="text-gray-600 text-lg">Những phản hồi tuyệt vời từ khách hàng của chúng tôi</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-2xl shadow-lg fade-in">
                     <div class="flex text-yellow-400 mb-4">
@@ -479,7 +673,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-600 mb-6">"Hoa rất tươi và đẹp, giao hàng nhanh chóng. Tôi sẽ quay lại mua tiếp!"</p>
+                    <p class="text-gray-600 mb-6">"Hoa rất tươi và đẹp, giao hàng nhanh chóng. Tôi sẽ quay lại mua
+                        tiếp!"</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center mr-4">
                             <span class="text-pink-600 font-semibold">A</span>
@@ -490,7 +685,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg fade-in">
                     <div class="flex text-yellow-400 mb-4">
                         <i class="fas fa-star"></i>
@@ -510,7 +705,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="bg-gradient-to-br from-yellow-50 to-white p-8 rounded-2xl shadow-lg fade-in">
                     <div class="flex text-yellow-400 mb-4">
                         <i class="fas fa-star"></i>
@@ -546,7 +741,8 @@
                             <p class="text-pink-400 font-semibold">HOA TƯƠI 386</p>
                         </div>
                     </div>
-                    <p class="text-gray-400 mb-4">Chuyên cung cấp hoa tươi phong cách Châu Âu cao cấp cho mọi dịp đặc biệt. Hoa hồng các loại, bình cắm hoa đẹp, hoa sinh nhật, tân gia và tang lễ.</p>
+                    <p class="text-gray-400 mb-4">Chuyên cung cấp hoa tươi phong cách Châu Âu cao cấp cho mọi dịp đặc
+                        biệt. Hoa hồng các loại, bình cắm hoa đẹp, hoa sinh nhật, tân gia và tang lễ.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-pink-400 transition-colors">
                             <i class="fab fa-facebook text-xl"></i>
@@ -559,7 +755,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h5 class="font-semibold text-lg mb-4">Sản phẩm</h5>
                     <ul class="space-y-2">
@@ -569,17 +765,21 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Phụ kiện</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h5 class="font-semibold text-lg mb-4">Dịch vụ</h5>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Giao hàng nhanh</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Thiết kế theo yêu cầu</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tư vấn miễn phí</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Bảo hành chất lượng</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Giao hàng nhanh</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Thiết kế theo yêu
+                                cầu</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tư vấn miễn phí</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Bảo hành chất lượng</a>
+                        </li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h5 class="font-semibold text-lg mb-4">Liên hệ</h5>
                     <ul class="space-y-2">
@@ -590,86 +790,96 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-700 mt-12 pt-8 text-center">
-                <p class="text-gray-400">&copy; 2024 GiangNhan Flower Shop - HOA TƯƠI 386. Tất cả quyền được bảo lưu.</p>
+                <p class="text-gray-400">&copy; 2024 GiangNhan Flower Shop - HOA TƯƠI 386. Tất cả quyền được bảo lưu.
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Order Button -->
-    <button class="floating-btn bg-gradient-to-r from-pink-500 to-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all">
+    <button
+        class="floating-btn bg-gradient-to-r from-pink-500 to-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all">
         <i class="fas fa-phone text-xl"></i>
     </button>
 
 
 
     <!-- Product Detail Modal -->
-    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+    <div id="product-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-2 sm:p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
             <div class="relative">
-                <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors">
+                <button onclick="closeProductModal()"
+                    class="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors">
                     <i class="fas fa-times text-gray-600"></i>
                 </button>
-                
-                <div id="modal-content" class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+
+                <div id="modal-content" class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 p-4 sm:p-8">
                     <!-- Product Image -->
                     <div class="space-y-4">
-                        <div id="modal-image" class="w-full h-96 bg-gray-100 rounded-xl overflow-hidden">
+                        <div id="modal-image"
+                            class="w-full h-64 sm:h-80 lg:h-96 bg-gray-100 rounded-xl overflow-hidden">
                             <!-- Image will be inserted here -->
                         </div>
                         <div class="grid grid-cols-3 gap-2">
-                            <div class="h-24 bg-gray-100 rounded-lg"></div>
-                            <div class="h-24 bg-gray-100 rounded-lg"></div>
-                            <div class="h-24 bg-gray-100 rounded-lg"></div>
+                            <div class="h-16 sm:h-24 bg-gray-100 rounded-lg"></div>
+                            <div class="h-16 sm:h-24 bg-gray-100 rounded-lg"></div>
+                            <div class="h-16 sm:h-24 bg-gray-100 rounded-lg"></div>
                         </div>
                     </div>
-                    
+
                     <!-- Product Info -->
-                    <div class="space-y-6">
+                    <div class="space-y-4 sm:space-y-6">
                         <div>
-                            <h2 id="modal-title" class="text-3xl font-playfair font-bold text-gray-800 mb-2"></h2>
+                            <h2 id="modal-title"
+                                class="text-2xl sm:text-3xl font-playfair font-bold text-gray-800 mb-2"></h2>
                             <div class="flex items-center space-x-4 mb-4">
-                                <div class="flex text-yellow-400">
+                                <div class="flex text-yellow-400 text-sm">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <span class="text-gray-600">(24 đánh giá)</span>
+                                <span class="text-gray-600 text-sm">(24 đánh giá)</span>
                             </div>
-                            <p id="modal-price" class="text-3xl font-bold text-pink-500 mb-4"></p>
+                            <p id="modal-price" class="text-2xl sm:text-3xl font-bold text-pink-500 mb-4"></p>
                         </div>
-                        
+
                         <div>
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">Mô tả sản phẩm</h3>
                             <p id="modal-description" class="text-gray-600 leading-relaxed"></p>
                         </div>
-                        
+
                         <div>
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">Thông tin chi tiết</h3>
                             <ul id="modal-details" class="space-y-2 text-gray-600">
                                 <!-- Details will be inserted here -->
                             </ul>
                         </div>
-                        
-                        <div class="border-t pt-6">
-                            <div class="flex space-x-4">
-                                <button class="flex-1 bg-gradient-to-r from-pink-500 to-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all">
+
+                        <div class="border-t pt-4 sm:pt-6">
+                            <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                                <button
+                                    class="flex-1 bg-gradient-to-r from-pink-500 to-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all text-sm sm:text-base">
                                     <i class="fas fa-phone mr-2"></i>
                                     Liên hệ đặt hàng
                                 </button>
-                                <button class="px-6 py-3 border-2 border-pink-500 text-pink-500 rounded-lg font-semibold hover:bg-pink-500 hover:text-white transition-all">
-                                    <i class="fas fa-heart"></i>
+                                <button
+                                    class="sm:px-6 py-3 border-2 border-pink-500 text-pink-500 rounded-lg font-semibold hover:bg-pink-500 hover:text-white transition-all text-sm sm:text-base">
+                                    <i class="fas fa-heart mr-2 sm:mr-0"></i>
+                                    <span class="sm:hidden">Yêu thích</span>
                                 </button>
                             </div>
                         </div>
-                        
+
                         <div class="bg-gray-50 p-4 rounded-lg">
                             <h4 class="font-semibold text-gray-800 mb-2">Dịch vụ của chúng tôi</h4>
                             <ul class="space-y-1 text-sm text-gray-600">
-                                <li><i class="fas fa-truck text-green-500 mr-2"></i>Giao hàng miễn phí trong nội thành</li>
+                                <li><i class="fas fa-truck text-green-500 mr-2"></i>Giao hàng miễn phí trong nội thành
+                                </li>
                                 <li><i class="fas fa-clock text-blue-500 mr-2"></i>Giao hàng nhanh trong 2-4 giờ</li>
                                 <li><i class="fas fa-shield-alt text-purple-500 mr-2"></i>Bảo đảm hoa tươi 100%</li>
                                 <li><i class="fas fa-headset text-orange-500 mr-2"></i>Tư vấn miễn phí 24/7</li>
@@ -682,6 +892,34 @@
     </div>
 
     <script>
+
+        //moblile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.querySelector('button.md\\:hidden');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function closeMenuOutside(event) {
+                if (!mobileMenu.contains(event.target) && !menuButton.contains(event.target)) {
+                    mobileMenu.classList.remove('show');
+                    document.removeEventListener('click', closeMenuOutside);
+                }
+            }
+
+            menuButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = mobileMenu.classList.contains('show');
+                mobileMenu.classList.toggle('show');
+
+                if (!isOpen) {
+                    setTimeout(() => {
+                        document.addEventListener('click', closeMenuOutside);
+                    }, 0);
+                } else {
+                    document.removeEventListener('click', closeMenuOutside);
+                }
+            });
+        });
+
         // Product data
         const productData = {
             'Hoa hồng đỏ Châu Âu': {
@@ -730,7 +968,7 @@
                     'Kèm theo: Thiệp sinh nhật và nơ trang trí',
                     'Phù hợp: Sinh nhật, chúc mừng thành công'
                 ],
-                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fdf2f8'/><circle cx='150' cy='115' r='40' fill='%23fce7f3'/><circle cx='135' cy='100' r='22' fill='%23f9a8d4'/><circle cx='165' cy='100' r='22' fill='%23f9a8d4'/><circle cx='150' cy='130' r='20' fill='%23f9a8d4'/><circle cx='125' cy='115' r='18' fill='%23f9a8d4'/><circle cx='175' cy='115' r='18' fill='%23f9a8d4'/><rect x='145' y='155' width='10' height='75' fill='%2316a34a'/><ellipse cx='128' cy='180' rx='12' ry='6' fill='%2316a34a'/><ellipse cx='172' cy='190' rx='10' ry='5' fill='%2316a34a'/><rect x='140' y='240' width='20' height='8' rx='2' fill='%23fbbf24'/></svg>"
+                image: "images/SinhNhat/HoasinhNhat1.png"
             },
             'Hoa tân gia may mắn': {
                 price: '499.000đ',
@@ -755,6 +993,30 @@
                     'Phù hợp: Cưới hỏi, tang lễ, tỏ tình'
                 ],
                 image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fafafa'/><circle cx='150' cy='120' r='40' fill='%23ffffff'/><circle cx='130' cy='100' r='25' fill='%23f8fafc'/><circle cx='170' cy='100' r='25' fill='%23f8fafc'/><circle cx='150' cy='80' r='20' fill='%23f1f5f9'/><rect x='145' y='160' width='10' height='80' fill='%2316a34a'/><ellipse cx='120' cy='200' rx='15' ry='8' fill='%2316a34a'/><ellipse cx='180' cy='180' rx='12' ry='6' fill='%2316a34a'/></svg>"
+            },
+            'Hoa sự kiện sang trọng': {
+                price: '1.299.000đ',
+                description: 'Bộ hoa trang trí sự kiện cao cấp với sự kết hợp đa màu sắc từ hoa hồng, hoa ly, hoa cúc và các loại hoa nhập khẩu. Thiết kế chuyên nghiệp phù hợp cho tiệc cưới, sinh nhật, khai trương và các sự kiện quan trọng.',
+                details: [
+                    'Loại hoa: Hoa hồng, ly, cúc, baby đa màu',
+                    'Kích thước: Bộ trang trí lớn (2m x 1.5m)',
+                    'Phong cách: Sang trọng, đa màu sắc',
+                    'Kèm theo: Khung trang trí và phụ kiện',
+                    'Phù hợp: Tiệc cưới, sinh nhật, khai trương'
+                ],
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23f8fafc'/><circle cx='120' cy='80' r='25' fill='%23a855f7'/><circle cx='180' cy='90' r='22' fill='%23ec4899'/><circle cx='150' cy='60' r='20' fill='%23f59e0b'/><circle cx='100' cy='110' r='18' fill='%23ef4444'/><circle cx='200' cy='120' r='20' fill='%2306b6d4'/><circle cx='140' cy='110' r='15' fill='%2310b981'/><circle cx='170' cy='120' r='17' fill='%23f97316'/><rect x='115' y='130' width='6' height='50' fill='%2316a34a'/><rect x='175' y='140' width='6' height='40' fill='%2316a34a'/><rect x='145' y='110' width='6' height='70' fill='%2316a34a'/><rect x='95' y='150' width='6' height='30' fill='%2316a34a'/><rect x='195' y='160' width='6' height='20' fill='%2316a34a'/><rect x='135' y='140' width='6' height='45' fill='%2316a34a'/><rect x='165' y='150' width='6' height='35' fill='%2316a34a'/></svg>"
+            },
+            'Hoa backdrop sự kiện': {
+                price: '2.499.000đ',
+                description: 'Backdrop hoa trang trí sự kiện cao cấp với thiết kế nghệ thuật, sử dụng hoa tươi đa dạng tạo nên bức tường hoa đẹp mắt. Thích hợp làm phông nền chụp ảnh cho tiệc cưới, sinh nhật và các sự kiện đặc biệt.',
+                details: [
+                    'Kích thước: 3m x 2.5m (có thể tùy chỉnh)',
+                    'Loại hoa: Hoa hồng, mẫu đơn, baby, lá trang trí',
+                    'Màu sắc: Gradient từ hồng đến tím',
+                    'Khung: Khung sắt chắc chắn, dễ lắp đặt',
+                    'Phù hợp: Tiệc cưới, sinh nhật, chụp ảnh'
+                ],
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><rect width='300' height='300' fill='%23fdf4ff'/><rect x='50' y='50' width='200' height='150' rx='10' fill='%23f3e8ff' stroke='%23a855f7' stroke-width='2'/><circle cx='80' cy='80' r='12' fill='%23f472b6'/><circle cx='120' cy='75' r='10' fill='%23ec4899'/><circle cx='160' cy='80' r='12' fill='%23a855f7'/><circle cx='200' cy='75' r='10' fill='%23f59e0b'/><circle cx='220' cy='85' r='8' fill='%23ef4444'/><circle cx='100' cy='110' r='15' fill='%2306b6d4'/><circle cx='140' cy='105' r='12' fill='%2310b981'/><circle cx='180' cy='110' r='15' fill='%23f97316'/><circle cx='70' cy='140' r='10' fill='%23fbbf24'/><circle cx='110' cy='135' r='8' fill='%23f472b6'/><circle cx='150' cy='140' r='10' fill='%23a855f7'/><circle cx='190' cy='135' r='8' fill='%23ec4899'/><circle cx='230' cy='145' r='6' fill='%23ef4444'/><circle cx='90' cy='170' r='12' fill='%2306b6d4'/><circle cx='130' cy='165' r='10' fill='%2310b981'/><circle cx='170' cy='170' r='12' fill='%23f97316'/><circle cx='210' cy='165' r='10' fill='%23fbbf24'/></svg>"
             }
         };
 
@@ -768,11 +1030,11 @@
             document.getElementById('modal-price').textContent = product.price;
             document.getElementById('modal-description').textContent = product.description;
             document.getElementById('modal-image').innerHTML = `<img src="${product.image}" alt="${productName}" class="w-full h-full object-cover">`;
-            
+
             // Update details list
             const detailsList = document.getElementById('modal-details');
             detailsList.innerHTML = product.details.map(detail => `<li><i class="fas fa-check text-green-500 mr-2"></i>${detail}</li>`).join('');
-            
+
             // Show modal
             document.getElementById('product-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -788,11 +1050,11 @@
             notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform';
             notification.textContent = message;
             document.body.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.classList.remove('translate-x-full');
             }, 100);
-            
+
             setTimeout(() => {
                 notification.classList.add('translate-x-full');
                 setTimeout(() => {
@@ -805,10 +1067,10 @@
         function filterProducts(category) {
             const products = document.querySelectorAll('.product-card');
             const filterBtns = document.querySelectorAll('.filter-btn');
-            
+
             filterBtns.forEach(btn => btn.classList.remove('active', 'bg-pink-500', 'text-white'));
             event.target.classList.add('active', 'bg-pink-500', 'text-white');
-            
+
             products.forEach(product => {
                 if (category === 'all' || product.classList.contains(category)) {
                     product.style.display = 'block';
@@ -824,19 +1086,19 @@
         }
 
         function scrollToProducts() {
-            document.getElementById('products').scrollIntoView({ 
-                behavior: 'smooth' 
+            document.getElementById('products').scrollIntoView({
+                behavior: 'smooth'
             });
         }
 
         // Scroll animations
         function handleScrollAnimations() {
             const elements = document.querySelectorAll('.fade-in');
-            
+
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
+
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('visible');
                 }
@@ -847,7 +1109,7 @@
         function handleParallax() {
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.parallax');
-            
+
             parallaxElements.forEach(element => {
                 const speed = 0.5;
                 element.style.transform = `translateY(${scrolled * speed}px)`;
@@ -865,7 +1127,7 @@
         });
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Add initial animations
             setTimeout(() => {
                 const heroElements = document.querySelectorAll('.hero-bg .fade-in');
@@ -875,5 +1137,7 @@
             }, 500);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'969a8856b5f285d4',t:'MTc1NDI3MzU3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'969aad0550b706fa',t:'MTc1NDI3NTA3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
 </html>
